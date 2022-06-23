@@ -4,3 +4,5 @@ export const colors = {
   black: "#000",
   white: "#fff",
 };
+
+export const defaultMenuIconSize = 28;
