@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { colors } from "./styleguide";
 
 export const Container = styled.div`
   margin: 0;
@@ -7,6 +6,10 @@ export const Container = styled.div`
   box-sizing: border-box;
   display: grid;
   grid-template-columns: 240px 1fr;
+  background-color: var(--background-base);
   height: 100%;
-  background-color: ${colors.primaryBlack};
+
+  main {
+    background-color: var(--background-base);
+  }
 `;

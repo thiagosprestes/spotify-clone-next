@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import { colors } from "../../styles/styleguide";
 
 export const Container = styled.header`
   padding: 20px 32px;
+  background-color: transparent;
 
   .navigation {
-    background-color: ${colors.black};
+    background-color: var(--background-press);
     border-radius: 50%;
     cursor: pointer;
   }

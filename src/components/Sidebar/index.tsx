@@ -1,18 +1,20 @@
 import React from "react";
 import { GoSearch } from "react-icons/go";
 import { MdHomeFilled } from "react-icons/md";
-import { defaultMenuIconSize } from "../../styles/styleguide";
+import { getStyleVariable } from "../../utils/getStyleVariable";
 import { Container } from "./styles";
 
 const Sidebar: React.FC = () => {
   const menuOptions = [
     {
       name: "Início",
-      icon: <MdHomeFilled size={defaultMenuIconSize} />,
+      icon: (
+        <MdHomeFilled size={getStyleVariable("--default-menu-icon-size")} />
+      ),
     },
     {
       name: "Buscar",
-      icon: <GoSearch size={defaultMenuIconSize} />,
+      icon: <GoSearch size={getStyleVariable("--default-menu-icon-size")} />,
     },
   ];
 

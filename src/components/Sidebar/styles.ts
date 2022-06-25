@@ -1,8 +1,7 @@
 import styled from "styled-components";
-import { colors } from "../../styles/styleguide";
 
 export const Container = styled.div`
-  background-color: ${colors.black};
+  background-color: var(--background-press);
   height: 100%;
   color: #fff;
   padding: 24px 22px;

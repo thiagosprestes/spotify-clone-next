@@ -1,27 +1,64 @@
 import React from "react";
-import { Container, LastPlayedList } from "./styles";
+import {
+  Album,
+  Artist,
+  Category,
+  LastPlayed,
+  Playlist,
+} from "../../../types/home";
+import { ListItem, ListType } from "../components/ListItem";
+import {
+  Container,
+  LastPlayedContainer,
+  LastPlayedContainerItem,
+} from "./styles";
 
-interface HomeContainerProps {}
+interface HomeContainerProps {
+  lastPlayed: LastPlayed[];
+  releases: Album[];
+  playlistsTitle: string;
+  playlists: Playlist[];
+  artists: Artist[];
+  categories: Category[];
+}
 
-const HomeContainer = ({}: HomeContainerProps) => (
+const HomeContainer = ({
+  lastPlayed,
+  releases,
+  playlistsTitle,
+  playlists,
+  artists,
+  categories,
+}: HomeContainerProps) => (
   <Container>
-    <div className="lastPlayed">
-      <h1>Olá</h1>
-      <LastPlayedList>
-        <div className="lastPlayedListItem">
-          <img src="https://yt3.ggpht.com/ytc/AKedOLR7tFH2y-LHbKuFiK4hmv3lUFXVt8FQXol5tljRsA=s900-c-k-c0x00ffffff-no-rj" />
-          <h2>Black Veil Brides</h2>
-        </div>
-        <div className="lastPlayedListItem">
-          <img src="https://yt3.ggpht.com/ytc/AKedOLR7tFH2y-LHbKuFiK4hmv3lUFXVt8FQXol5tljRsA=s900-c-k-c0x00ffffff-no-rj" />
-          <h2>Black Veil Brides</h2>
-        </div>
-        <div className="lastPlayedListItem">
-          <img src="https://yt3.ggpht.com/ytc/AKedOLR7tFH2y-LHbKuFiK4hmv3lUFXVt8FQXol5tljRsA=s900-c-k-c0x00ffffff-no-rj" />
-          <h2>Black Veil Brides</h2>
-        </div>
-      </LastPlayedList>
-    </div>
+    <LastPlayedContainer>
+      {lastPlayed.map((item) => (
+        <LastPlayedContainerItem key={item.track.id}>
+          <img src={item.track.album.images[0].url} />
+          <h1>{item.track.name}</h1>
+        </LastPlayedContainerItem>
+      ))}
+    </LastPlayedContainer>
+    <ListItem
+      releases={releases}
+      title="Novos lançamentos"
+      type={ListType.releases}
+    />
+    <ListItem
+      playlists={playlists}
+      title={playlistsTitle}
+      type={ListType.playlists}
+    />
+    <ListItem
+      artists={artists}
+      title="Seus artistas favoritos"
+      type={ListType.artists}
+    />
+    <ListItem
+      categories={categories}
+      title="Categorias em alta"
+      type={ListType.categories}
+    />
   </Container>
 );
 

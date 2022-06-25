@@ -1,12 +1,11 @@
 import styled from "styled-components";
-import { colors } from "../../../styles/styleguide";
 
 export const Container = styled.main`
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${colors.primaryBlack};
+  background-color: var(--background-base);
   flex-direction: column;
 
   button {

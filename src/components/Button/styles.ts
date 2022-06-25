@@ -1,8 +1,7 @@
 import styled from "styled-components";
-import { colors } from "../../styles/styleguide";
 
 export const Button = styled.button`
-  background-color: ${colors.white};
+  background-color: var(--text-base);
   font-weight: bold;
   border-radius: 50px;
   width: 200px;
@@ -11,7 +10,7 @@ export const Button = styled.button`
 
   &:hover {
     opacity: 0.8;
-    transition: all 0.3s;
+    transition: var(--default-transition);
     cursor: pointer;
   }
 `;
