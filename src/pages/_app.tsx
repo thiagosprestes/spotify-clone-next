@@ -1,13 +1,28 @@
 import type { AppProps } from "next/app";
-import { AuthProvider } from "../contexts/authContext";
+import { useRouter } from "next/router";
+import { Header } from "../components/Header";
+import Sidebar from "../components/Sidebar";
+import { AuthProvider } from "../contexts/AuthContext";
+import { Container } from "../styles/app";
 import { GlobalStyles } from "../styles/globals";
-import { Routes } from "./routes";
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+
   return (
     <AuthProvider>
       <GlobalStyles />
-      <Routes Component={Component} {...pageProps} />
+      {router.pathname !== "/login" ? (
+        <Container>
+          <Sidebar />
+          <main>
+            <Header />
+            <Component {...pageProps} />
+          </main>
+        </Container>
+      ) : (
+        <Component {...pageProps} />
+      )}
     </AuthProvider>
   );
 }

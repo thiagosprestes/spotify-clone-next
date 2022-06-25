@@ -5,9 +5,9 @@ import { ElementType, useEffect } from "react";
 export const verifyAuth = (Component: ElementType) => {
   const Wrapper = (props: any) => {
     useEffect(() => {
-      const cookies = parseCookies();
+      const { "spotifyCloneApp.authToken": authToken } = parseCookies();
 
-      if (!cookies) Router.push("/login");
+      if (!authToken) Router.push("/login");
     }, []);
 
     return <Component {...props} />;
