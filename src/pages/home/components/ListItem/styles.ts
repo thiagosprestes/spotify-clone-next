@@ -10,7 +10,7 @@ export const Container = styled.div`
 
   .list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
     gap: 20px;
   }
 `;
@@ -63,11 +63,12 @@ export const ArtistItem = styled.div`
   border-radius: 4px;
   transition: var(--default-transition);
   cursor: pointer;
+  width: 100%;
 
   img {
     border-radius: 50%;
     width: 100%;
-    height: 70%;
+    height: 62%;
     object-fit: cover;
   }
 

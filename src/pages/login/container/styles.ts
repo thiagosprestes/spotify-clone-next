@@ -11,4 +11,8 @@ export const Container = styled.main`
   button {
     margin-top: 50px;
   }
+
+  h1 {
+    color: var(--text-base);
+  }
 `;
